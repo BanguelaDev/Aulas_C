@@ -11,6 +11,7 @@ int main(){
         {13, 14, 15, 16}
     };
 
+    
     int total = 0;
 
     for (int i = 0; i < SIZE; i++) {
