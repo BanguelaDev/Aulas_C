@@ -31,7 +31,7 @@ void Front(){
 
 void listQueue(){
     if (ini > end) {
-        printf("Fila vazia\n");
+        printf("Erro: Fila vazia!\n");
         return;
     }
 
@@ -42,7 +42,7 @@ void listQueue(){
 
 void Inverse(){
     if (ini > end) {
-        printf("Fila vazia\n");
+        printf("Erro: Fila vazia!\n");
         return;
     }
 
