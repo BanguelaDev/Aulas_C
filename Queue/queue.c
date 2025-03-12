@@ -2,32 +2,30 @@
 #define SIZE 3
 
 int ini = 0;
-int end = 0;
+int end = -1;
 int queue[SIZE];
 
 void Enqueue(int n) {
-    if ((end + 1) % SIZE == ini) {
-        printf("A fila está cheia \n");
-        return;
+    if (end < SIZE - 1) {
+        end++;
+        queue[end] = n;
+        printf("Elemento %d adicionado à fila\n", n);
+    } else {
+        printf("Fila cheia\n");
     }
-
-    queue[end] = n;
-    end = (end + 1) % SIZE;
-
-    printf("Elemento %d inserido. \n", n);
 }
 
 void Dequeue() {
-    if (ini == end) {
-        printf("A fila está vazia \n");
-        return;
+    if (ini <= end) {
+        printf("Elemento %d removido da fila\n", queue[ini]);
+        ini++;
+    } else {
+        printf("Fila vazia\n");
     }
-
-    printf("Elemento %d removido. \n", queue[ini]);
-    ini = (ini + 1) % SIZE;
 }
 
 int main() {
+    
     Enqueue(10);
     Enqueue(20);
     Dequeue();
