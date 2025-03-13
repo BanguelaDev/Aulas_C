@@ -6,18 +6,26 @@ struct student{
     double grade;
 };
 
-void printStudent(struct student s){
-    printf("Nome: %s, Idade: %d, Nota: %.10g\n", s.name, s.age, s.grade);
-}
-
 int main(){
-    struct student s1 = {"Joao", 20, 8.5};
-    struct student s2 = {"Maria", 19, 9.0};
-    struct student s3 = {"Pedro", 21, 7.5};
+   struct student students[3];
 
-    printStudent(s1);
-    printStudent(s2);
-    printStudent(s3);
-
-    return 0;
+   printf("Digite o nome, idade e nota dos alunos:\n");
+    
+   for(int i = 0; i < 3; i++) {
+       printf("Aluno %d:\n", i + 1);
+       printf("Nome: ");
+       scanf("%s", students[i].name);
+       printf("Idade: ");
+       scanf("%d", &students[i].age);
+       printf("Nota: ");
+       scanf("%lf", &students[i].grade);
+   }
+   
+   printf("\nDados dos alunos:\n");
+   
+   for(int i = 0; i < 3; i++) {
+       printf("Nome: %s, Idade: %d, Nota: %.10g\n", students[i].name, students[i].age, students[i].grade);
+   }
+   
+   return 0;
 }
