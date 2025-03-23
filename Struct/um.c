@@ -1,23 +1,28 @@
 #include <stdio.h>
 
-struct student{
+#define MAX_ALUNOS 3
+
+struct student {
     char name[50];
     int age;
     double grade;
 };
 
-void printStudent(struct student s){
-    printf("Nome: %s, Idade: %d, Nota: %.10g\n", s.name, s.age, s.grade);
+void getStudent(struct student s) {
+    printf("Nome: %s, Idade: %d, Nota: %.2f\n", s.name, s.age, s.grade);
 }
 
-int main(){
-    struct student s1 = {"Joao", 20, 8.5};
-    struct student s2 = {"Maria", 19, 9.0};
-    struct student s3 = {"Pedro", 21, 7.5};
+int main() {
 
-    printStudent(s1);
-    printStudent(s2);
-    printStudent(s3);
+    struct student dict[MAX_ALUNOS] = {
+        {"Joao", 20, 8.5},
+        {"Maria", 19, 9.0},
+        {"Pedro", 21, 7.5}
+    };
+
+    for (int i = 0; i < MAX_ALUNOS; i++) {
+        getStudent(dict[i]);
+    }
 
     return 0;
 }
