@@ -12,7 +12,16 @@ int main(){
     scanf("%d", &m);
 
     int *vetor1 = (int *)malloc(n * sizeof(int));
+    if (vetor1 == NULL) {
+        printf("Erro ao alocar memória.\n");
+        return 1;
+    }
+
     int *vetor2 = (int *)malloc(m * sizeof(int));
+    if (vetor2 == NULL) {
+        printf("Erro ao alocar memória.\n");
+        return 1;
+    }
 
     int count = 0;
 
@@ -28,7 +37,11 @@ int main(){
         printf("%d \n", vetor2[i]);
     }
 
-    int *vetor3 = (int *)malloc((n + m) * sizeof(int));
+    int *vetor3 = malloc((n + m) * sizeof(int));
+    if (vetor3 == NULL) {
+        printf("Erro ao alocar memória.\n");
+        return 1;
+    }
 
     for (int i = 0; i < n; i++){
         vetor3[i] = vetor1[i];

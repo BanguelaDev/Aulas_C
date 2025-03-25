@@ -12,7 +12,7 @@ int main() {
     printf("Digite o numero de colunas \n");
     scanf("%d", &columns);
 
-    matrix = (int **) malloc(lines * sizeof (int *));
+    matrix = malloc(lines * sizeof (int *));
 
     if (matrix == NULL) {
         printf("Erro ao alocar memória.\n");
@@ -20,7 +20,7 @@ int main() {
     }
 
     for (int i = 0; i < lines; i++) {
-        matrix[i] = (int *)malloc(columns * sizeof(int));
+        matrix[i] = malloc(columns * sizeof(int));
         if (matrix[i] == NULL) {
             printf("Erro ao alocar memória para a linha %d.\n", i);
             return 1;

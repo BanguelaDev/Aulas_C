@@ -8,7 +8,11 @@ int main(){
     printf("Qual o tamanho do vetor dinamico: ");
     scanf("%d", &n);
 
-    int *vector = (int *) malloc(n * sizeof(int));
+    int *vector = malloc(n * sizeof(int));
+    if (vector == NULL) {
+        printf("Erro ao alocar memória.\n");
+        return 1;
+    }
 
     printf("\nVetor original: ");
     for (int i = 0; i < n; i++){
@@ -29,13 +33,16 @@ int main(){
         }
     }
 
-    int *vector2 = (int *) malloc(newSize * sizeof(int));
+    int *vector2 = malloc(newSize * sizeof(int));
+    if (vector2 == NULL) {
+        printf("Erro ao alocar memória.\n");
+        return 1;
+    }
 
     int j = 0;
     for (int i = 0; i < n; i++) {
         if (vector[i] != m) {
-            vector2[j] = vector[i];
-            j++;
+            vector2[j++] = vector[i];
         }
     }
 
@@ -44,6 +51,9 @@ int main(){
         printf("%d ", vector2[i]);
     }
     printf("\n");
+
+    free(vector);
+    free(vector2);
 
     return 0;
 }

@@ -7,8 +7,8 @@ int main() {
     printf("Qual vai ser o tamanho do vetor de numeros reais (float)?\n");
     scanf("%d", &size);
 
-    float *p = (float *) malloc(size * sizeof(float));
-
+    float *p = malloc(size * sizeof(float));
+    
     if (p == NULL) {
         printf("Erro ao alocar memória.\n");
         return 1;
